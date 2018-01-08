@@ -43,6 +43,7 @@ class Sorting {
           val temp = inputList(j)
           inputList(j) = inputList(j + 1)
           inputList(j + 1) = temp
+
         }
       }
     }
@@ -55,11 +56,13 @@ class Sorting {
       return inputList
     }
     var minIndex = startIndex
-    for (index <- startIndex until (inputList.length)) {
+    for (index <- startIndex until inputList.length) {
+
       if (inputList(index) < inputList(minIndex)) {
         minIndex = index
       }
     }
+
     val temp = inputList(startIndex)
     inputList(startIndex) = inputList(minIndex)
     inputList(minIndex) = temp

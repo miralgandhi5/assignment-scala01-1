@@ -3,7 +3,7 @@ package edu.knoldus
 class Searching {
 
   def binarySearch(array: Array[Int], elem: Int): Boolean = {
-   binarySearch(array,0,array.length-1,elem)
+    myBinarySearch(array, 0, array.length - 1, elem)
 
   }
 
@@ -18,21 +18,28 @@ class Searching {
     false
   }
 
-  private def binarySearch(inputList:Array[Int], left: Int , right: Int, value: Int ): Boolean = {
+  private def myBinarySearch(inputList: Array[Int], left: Int, right: Int, value: Int): Boolean = {
 
-    val middle: Int = (left + right) / 2
+
     if (right >= left) {
+
+      val middle: Int = left + (right - left) / 2
       if (inputList(middle) == value) {
-        return true
+        true
       }
-      else if (inputList(middle) > value) {
-        binarySearch(inputList, middle + 1 ,right, value)
+
+      else if (inputList(middle) < value) {
+        myBinarySearch(inputList, middle + 1, right, value)
       }
       else {
-        binarySearch(inputList, left , middle - 1, value)
+        myBinarySearch(inputList, left, middle - 1, value)
       }
     }
-    false
+    else {
+      false
+
+    }
+
   }
 
 }
